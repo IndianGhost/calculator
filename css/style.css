@@ -1,0 +1,81 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap');
+
+:root {
+    --primary: #FF9500;
+    --secondary: #1C1C1C;
+    --tertiary: #505050;
+    --quaternary: #D4D4D2;
+    --body-background: #ff95001c;
+    --text-color: #fafafa;
+}
+
+body {
+    background-color: var(--body-background);
+    font-family: 'Montserrat', sans-serif;
+}
+
+#flex-container {
+    display: flex;
+    justify-content: center;
+}
+
+#container {
+    background-color: var(--primary);
+    width: 40%;
+    padding: 5% 2%;
+    margin: 50px auto;
+    text-align: center;
+    border: 1px solid var(--tertiary);
+    border-radius: 5px;
+}
+
+#screen {
+    background-color: var(--secondary);
+    border: 1px solid var(--tertiary);
+    border-radius: 5px;
+    text-align: right;
+    padding: 2% 0;
+}
+
+#screen:hover {
+    cursor: not-allowed;
+}
+
+#result {
+    color: var(--text-color);
+    margin-right: 1.5em;
+}
+
+#btn-container {
+    margin: auto;
+    margin-bottom: 0 !important;
+    padding-top: 5%;
+}
+
+.row {
+    display: flex;
+    flex-direction: row;
+    padding: 3% 0;
+    margin: 3% 0;
+}
+
+.col {
+    width: 25%;
+}
+
+.btn {
+    background-color: var(--tertiary);
+    color: var(--text-color);
+    border: 1px solid var(--tertiary);
+    border-radius: 5px;
+    padding: 15px;
+    width: 10px;
+}
+
+.btn:hover {
+    cursor: pointer;
+}
+
+.btn:active {
+    box-shadow: 0px 0px 1px 1px var(--quaternary);
+}
