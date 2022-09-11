@@ -5,8 +5,8 @@
     --secondary: #1C1C1C;
     --tertiary: #505050;
     --quaternary: #D4D4D2;
-    --body-background: #ff95001c;
-    --text-color: #fafafa;
+    --body-background: #fafafa;
+    --text-color: var(--body-background);
 }
 
 body {
@@ -35,15 +35,20 @@ body {
     border-radius: 5px;
     text-align: right;
     padding: 2% 0;
-}
-
-#screen:hover {
-    cursor: not-allowed;
-}
-
-#result {
     color: var(--text-color);
+}
+
+.result {
     margin-right: 1.5em;
+}
+
+.icon-delete-container {
+    display: inline-block;
+    margin-right: 1.5em;
+}
+
+.icon-delete-container:hover {
+    cursor: pointer;
 }
 
 #btn-container {

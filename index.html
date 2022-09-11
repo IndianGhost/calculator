@@ -6,6 +6,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Calculator</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+        integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="css/style.css" />
 </head>
 
@@ -14,69 +17,72 @@
     <div id="flex-container">
         <div id="container">
             <div id="screen">
-                <span id="result">0</span>
+                <span id="js-result" class="result">0</span>
+                <div id="js-delete-result" class="icon-delete-container">
+                    <i class="fa-solid fa-delete-left"></i>
+                </div>
             </div>
             <div id="btn-container">
                 <div class="row">
                     <div class="col">
-                        <span class="btn">7</span>
+                        <span class="btn js-btn">7</span>
                     </div>
                     <div class="col">
-                        <span class="btn">8</span>
+                        <span class="btn js-btn">8</span>
                     </div>
                     <div class="col">
-                        <span class="btn">9</span>
+                        <span class="btn js-btn">9</span>
                     </div>
                     <div class="col">
-                        <span class="btn">&divide;</span>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col">
-                        <span class="btn">4</span>
-                    </div>
-                    <div class="col">
-                        <span class="btn">5</span>
-                    </div>
-                    <div class="col">
-                        <span class="btn">6</span>
-                    </div>
-                    <div class="col">
-                        <span class="btn">&times;</span>
+                        <span class="btn js-btn">&divide;</span>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col">
-                        <span class="btn">1</span>
+                        <span class="btn js-btn">4</span>
                     </div>
                     <div class="col">
-                        <span class="btn">2</span>
+                        <span class="btn js-btn">5</span>
                     </div>
                     <div class="col">
-                        <span class="btn">3</span>
+                        <span class="btn js-btn">6</span>
                     </div>
                     <div class="col">
-                        <span class="btn">&minus;</span>
+                        <span class="btn js-btn">&times;</span>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col">
-                        <span class="btn">.</span>
+                        <span class="btn js-btn">1</span>
                     </div>
                     <div class="col">
-                        <span class="btn">0</span>
+                        <span class="btn js-btn">2</span>
                     </div>
                     <div class="col">
-                        <span class="btn">&equals;</span>
+                        <span class="btn js-btn">3</span>
                     </div>
                     <div class="col">
-                        <span class="btn">&plus;</span>
+                        <span class="btn js-btn">&minus;</span>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <span class="btn js-btn">.</span>
+                    </div>
+                    <div class="col">
+                        <span class="btn js-btn">0</span>
+                    </div>
+                    <div class="col">
+                        <span class="btn js-btn">&equals;</span>
+                    </div>
+                    <div class="col">
+                        <span class="btn js-btn">&plus;</span>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <script src="js/main.js"></script>
+    <script src="js/main.js" type="module" async></script>
 </body>
 
 </html>
