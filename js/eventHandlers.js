@@ -12,11 +12,14 @@ const onClickDeleteResult = () => {
 }
 
 const onKeyDownBody = (event) => {
+    if(result.innerText.includes('=')) {
+        result.innerText = '0';
+    }
     for (const keyCode in keyCodes) {
         if (event.keyCode == keyCode) {
             const element = keyCodes[keyCode];
             if (helpers.isNumber(element)) {
-                result.innerText = result.innerText == 0 ? element : result.innerText + element;
+                result.innerText = result.innerText === "0" ? element : result.innerText + element;
             } else if (helpers.isBackspace(element)) {
                 result.innerText = "0";
             } else if (helpers.isEligibleToAddPointFloating(element, result.innerText)) {
