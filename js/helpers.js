@@ -8,12 +8,17 @@ export {
     evaluateArithmeticOperation
 }
 
-var arithmeticOperators = { 'times': '×', 'plus': '+', 'minus': '−', 'divide': '÷' };
-var evaluateOperators = {
-    "times": (num1, num2) => num1 * num2,
-    "plus": (num1, num2) => { if (num2 != 0) return num1 / num2; else throw 'Cannot divide by zero'; },
-    "minus": (num1, num2) => num1 + num2,
-    "divide": (num1, num2) => num1 - num2,
+var arithmeticOperators = { 'multiplication': '×', 'addition': '+', 'subtraction': '−', 'division': '÷' };
+/**
+ *  Order of keys is important
+ * The order of arithmetic operations is:
+ * Multiplication and Division (from left to right), Addition and Subtraction (from left to right)
+ *  */
+var arithmeticOperations = {
+    "multiplication": (num1, num2) => num1 * num2,
+    "division": (num1, num2) => { if (num2 != 0) return num1 / num2; else throw 'Cannot divide by zero'; },
+    "addition": (num1, num2) => num1 + num2,
+    "subtraction": (num1, num2) => num1 - num2,
 };
 
 const isNumber = (value) => typeof Number.parseFloat(value) == 'number' && !isNaN(Number.parseFloat(value));
@@ -109,8 +114,37 @@ const evaluateArithmeticOperation = (expression) => {
         let negateRegex = getNegateRegexForArithmeticOperators();
         let numbers = expression.split(new RegExp(regex)).map(elt => Number.parseFloat(elt));
         let operators = expression.split(new RegExp(negateRegex)).filter(elt => elt);
-        // TODO : code here !
-        return expression;
+        console.log(numbers);
+        console.log(operators);
+        for (const key in arithmeticOperations) {
+            if (operators.includes(arithmeticOperators[key])) {
+                let indexesOfOperator = indexesOf(operators, arithmeticOperators[key]);
+                let numbersAfterOperation = [];
+                let i = 0;
+                while (i < numbers.length) {
+                    let numberToAdd;
+                    if (indexesOfOperator.includes(i)) {
+                        try {
+                            numberToAdd = arithmeticOperations[key](numbers[i], numbers[i + 1]);
+                            i += 2;
+                        } catch (error) {
+                            return error;
+                        }
+                    } else {
+                        numberToAdd = numbers[i];
+                        i++;
+                    }
+                    numbersAfterOperation.push(numberToAdd);
+                }
+                numbers = numbersAfterOperation;
+            }
+            operators = operators.filter(op => op != arithmeticOperators[key]);
+            console.log(numbers);
+            console.log(operators);
+        }
+        console.log("/*** Final result ***/");
+        console.log(numbers);
+        return (numbers.length===1)? numbers[0] : (() => {throw 'Internal error: something is going wrong';})();
     }
     throw expression + ' is not an arithmetic operation';
 };
